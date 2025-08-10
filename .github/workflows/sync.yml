@@ -9,7 +9,14 @@ on:
   schedule:
     - cron: '0 */6 * * *' # every 6 hours
   workflow_dispatch:
-
+  
+on:
+  workflow_dispatch:
+    inputs:          # 可选：为手动触发提供自定义输入参数
+      param1:
+        description: "Description"
+        required: true
+        default: "value"
 jobs:
   sync_latest_from_upstream:
     name: Sync latest commits from upstream repo
